@@ -29,13 +29,20 @@ const EditProfileUser = () => {
     } = useForm();
 
     const handleValid = async (values) => {
+        const data = {};
+
+        Object.keys(values).forEach((key) => {
+            if (typeof values[key] !== 'undefined') data[key] = values[key];
+        });
+
+        console.log(data);
         try {
             await updateDoc(doc(db, 'users', user.uid), {
-                ...values,
+                ...data,
                 updatedAt: serverTimestamp(),
             });
 
-            setUser((user) => ({ ...user, ...values }));
+            setUser((user) => ({ ...user, ...data }));
             toast.success('Update personal information successfully!');
         } catch (error) {
             toast.error(error.message);
