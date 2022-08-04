@@ -115,20 +115,22 @@ const MovieDetailsReviews = ({ className = '' }) => {
                     </div>
                 </div>
 
-                <div className="mt-6 mb-8 flex items-center gap-6">
-                    <Avatar
-                        className="w-10 h-10"
-                        alt=""
-                        src={user?.avatar?.url}
-                    />
-                    <form className="flex-1 flex items-center pr-4 text-[#9b9b9b] bg-[#fff] rounded-3xl overflow-hidden">
-                        <textarea
-                            placeholder="Write a comment..."
-                            className="flex-1 py-2 px-4 text-inherit leading-[32px] h-[48px] bg-[#fff] text-xs outline-none resize-none"
+                {user && (
+                    <div className="mt-6 mb-8 flex items-center gap-6">
+                        <Avatar
+                            className="w-10 h-10"
+                            alt=""
+                            src={user?.avatar?.url}
                         />
-                        <SendIcon className="w-6 h-6 rotate-45 fill-current cursor-pointer hover:fill-primary ease-ease duration-300" />
-                    </form>
-                </div>
+                        <form className="flex-1 flex items-center pr-4 text-[#9b9b9b] bg-[#fff] rounded-3xl overflow-hidden">
+                            <textarea
+                                placeholder="Write a comment..."
+                                className="flex-1 py-2 px-4 text-inherit leading-[32px] h-[48px] bg-[#fff] text-xs outline-none resize-none"
+                            />
+                            <SendIcon className="w-6 h-6 rotate-45 fill-current cursor-pointer hover:fill-primary ease-ease duration-300" />
+                        </form>
+                    </div>
+                )}
 
                 <div>
                     {reviews?.results?.map((review) => (
