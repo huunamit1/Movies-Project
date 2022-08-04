@@ -12,7 +12,6 @@ import MovieDetailsInfo, {
 import MovieDetailsReviews, {
     MovieDetailsReviewsSkeleton,
 } from '~/components/MovieDetailsReviews';
-import RequestLogin from '~/components/RequestLogin';
 import Seasons from '~/components/Seasons';
 import Video, { VideoSkeleton } from '~/components/Video';
 import useAuth from '~/context/Auth';
@@ -22,7 +21,7 @@ import PageNotFound from '~/pages/PageNotFound';
 import * as httpRequest from '~/utils/httpRequest';
 
 const MovieDetailPage = () => {
-    const { user, loading: loadingUser } = useAuth();
+    const { user } = useAuth();
     const { slug } = useParams();
     const [params] = useSearchParams();
     const [movieDetail, setMovieDetail] = useState();
@@ -80,7 +79,6 @@ const MovieDetailPage = () => {
 
     if (!slug || !movieId) return <PageNotFound />;
     if (!loading && !movieDetail && !credits) return <PageNotFound />;
-    if (!user && !loadingUser) return <RequestLogin />;
 
     return (
         <>
