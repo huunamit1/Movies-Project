@@ -7,7 +7,7 @@ const PageNotFound = () => {
     useBackToTop();
 
     return (
-        <section className="min-h-screen max-w-5xl py-10 flex items-center justify-center bg-white font-['Arvo',_serif]">
+        <section className="min-h-screen max-w-5xl mx-auto py-10 flex items-center justify-center bg-white font-['Arvo',_serif]">
             <div className="container mx-auto">
                 <div className="col-sm-10 col-sm-offset-1 flex flex-col items-center">
                     <div className="bg-404-page h-[400px] bg-center">
